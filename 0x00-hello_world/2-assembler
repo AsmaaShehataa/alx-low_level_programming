@@ -1,3 +1,4 @@
 #!/bin/bash
-gcc -x $FILE > s
+gcc -s $FILE
+
 
