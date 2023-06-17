@@ -13,8 +13,8 @@ int main(void)
 
 	while (ch <= 'z')
 	{
-		if (ch == 'e' || ch == 'q')
-			ch++;  /**in case of finding e or q 3adehom w zwd el 7rf elli 3aleh el dor*/
+			if (ch == 'e' || ch == 'q')
+				ch++;  /**in case of finding e or q 3adehom w zwd el 7rf elli 3aleh el dor*/
 			putchar(ch);
 			ch++;
 	}
