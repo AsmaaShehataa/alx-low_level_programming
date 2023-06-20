@@ -1,21 +1,16 @@
 #include "main.h"
 /**
- * main - Entry point
- * _putchar function to print putchar
- * printing alphanumeric characters in lower case
- *
+ * print_alphabet - utilizes on the putcharfunction to print the alphabet
  * Return: on success (0)
 */
 
-int main(void)
+void print_alphabet(void)
 {
-	char ch = 'a';
+	int ch;
 
-	while (ch <= 'z')
+	for (ch = 'a'; ch < 'z'; ch++)
 	{
 		putchar(ch);
-		ch++;
 	}
 	putchar('\n');
-	return (0);
 }
