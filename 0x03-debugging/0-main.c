@@ -3,8 +3,9 @@
 
 /**
 * main - tests function that prints if integer is positive or negative
-*
-* Return: 0 on success
+* positive_or_negative - tests function
+* @i: number checks if it == zero
+* Return: 0
 */
 
 int main(void)
