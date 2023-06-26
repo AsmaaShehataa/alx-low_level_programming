@@ -1,3 +1,5 @@
+#include"main.h"
+
 /**
  * swap_int - check the code
  *
@@ -7,6 +9,9 @@
 
 void swap_int(int *a, int *b)
 {
+	int m;
+
+	m = *a;
 	*a = *b;
-	*b = 98;
+	*b = m;
 }
