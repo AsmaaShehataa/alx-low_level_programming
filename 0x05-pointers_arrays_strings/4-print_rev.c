@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * _print_rev - prints a string, in reverse
- * @str: string
+ * print_rev - prints a string, in reverse
+ * @s: string
  * Return: length
  */
 
 void print_rev(char *s)
 {
-	int k = 0; 
+	int k = 0;
 	int l;
 
 	while (*s != '\0')
