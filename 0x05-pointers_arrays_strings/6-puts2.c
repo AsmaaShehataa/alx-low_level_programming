@@ -2,7 +2,7 @@
 
 /**
  * puts2 - a function that prints every other character of a string
- * @i: string
+ * @str: string
  * Return: length
  */
 
@@ -22,7 +22,7 @@ void puts2(char *str)
 
 	for (num3 = 0; num3 <= num2; num3++)
 	{
-		if(num3 % 2 == 0)
+		if (num3 % 2 == 0)
 		{
 			_putchar(str[num3]);
 		}
