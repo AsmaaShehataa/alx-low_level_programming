@@ -12,5 +12,6 @@ int func_square_recursion(int n, int i);
 int is_prime_number(int n);
 int actual_prime(int n, int i);
 int is_palindrome(char *s);
+int check_palindrome(char *s, int i, int len);
 
 #endif
