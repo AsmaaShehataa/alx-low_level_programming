@@ -10,32 +10,31 @@
 
 int **alloc_grid(int width, int height)
 {
-	int **grid;
-	int i, j;
+	int **medwh;
+	int x, y;
 
-	if (width < 0 || height < 0)
+	if (height == 0 || width == 0)
 		return (NULL);
 
-	grid = malloc(height * sizeof(int *));
-	if (grid == NULL)
+	medwh = malloc(sizeof(int *) * height);
+	if (medwh == NULL)
 		return (NULL);
 
-	for (i = 0; i < height; i++)
+	for (x = 0; x < height; x++)
+	{
+		medwh[x] = malloc(sizeof(int) * width);
+		if (medwh[x] == NULL)
 		{
-		grid[i] = malloc(sizeof(int) * width);
-		if (grid[i] == NULL)
-			{
-			for (; i >= 0; i--)
-			free(grid[i]);
-			free(grid);
+			for (; x >= 0; x--)
+				free(medwh[x]);
+			free(medwh);
 			return (NULL);
-			}
 		}
-		for (i = 0; i < height; i++)
-		{
-			for (j = 0; j < width; j++)
-			grid[i][j] = 0;
-		}
-
-		return (grid);
+	}
+	for (x = 0; x < height; x++)
+	{
+		for (y = 0; y < width; y++)
+			medwh[x][y] = 0;
+	}
+	return (medwh);
 }
