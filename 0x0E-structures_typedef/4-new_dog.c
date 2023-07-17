@@ -29,6 +29,7 @@ int _strlen(char *s)
 char _strcpy(char *pony_s, char *cpds1)
 {
 	int i, len;
+
 	len = 0;
 
 	while (cpds1[len] != '\0')
