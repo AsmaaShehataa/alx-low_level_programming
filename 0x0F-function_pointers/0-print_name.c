@@ -4,14 +4,15 @@
 
 /**
  * print_name - print the name
- *	@name: the name input variable
+ *	@f: is the function pointer
+ * @name: the name of the person
  *	Return: void (0) on success
 */
 
 void print_name(char *name, void (*f)(char *))
 {
 
-	if (name == NULL || f == NULL)
-		return;
+	if (name && f != NULL)
+
 	f(name);
 }
