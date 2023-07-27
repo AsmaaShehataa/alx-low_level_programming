@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * add_node - adds a new node in the beg of list
+ * add_node_end - adds a new node in the beg of list
  * @head: address of a pointer to a head node
  * @str: str field of node
  * Return: new node
