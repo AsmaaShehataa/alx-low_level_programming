@@ -1,20 +1,17 @@
-	#include "lists.h"
+#include "lists.h"
 
-	/**
-	 * free_listint - frees the linked list form the memory
-	 * @head: pointer to the node
-	 * Return: void (0) on success
-	*/
+/**
+ * free_listint - frees memory from linked list
+ * @head: pointer to the node
+ * Return: void (0) on success
+*/
 
-	void free_listint(listint_t *head)
-	{
-		listint_t *tempo;
+void free_listint(listint_t *head)
+{
+	listint_t *mfreeme;
 
-
-		while (head)
-		{
-			freeme = head->next;
-			free(head);
-			head = tempo;
-		}
-	}
+	while (head)
+		mfreeme = head->next;
+		free(head);
+		head = mfreeme;
+}
