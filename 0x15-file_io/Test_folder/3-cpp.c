@@ -7,7 +7,6 @@
 #define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 #define READ_BUF_SIZE 1024
 
-
 /**
  * main - program
  * @ac: args count
@@ -37,16 +36,15 @@ int main(int ac, char **av)
 			dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
 
 	if (bb == -1)
-		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
+		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]);
+		exit(98);
 
 	from_filedata = close(from_filedata);
 	to_filedata = close(to_filedata);
 
 	if (from_filedata)
 		dprintf(STDERR_FILENO, ERR_NOCLOSE, from_filedata), exit(100);
-
 	if (to_filedata)
 		dprintf(STDERR_FILENO, ERR_NOCLOSE, from_filedata), exit(100);
-
 	return (0);
 }
