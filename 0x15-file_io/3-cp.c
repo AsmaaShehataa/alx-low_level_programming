@@ -2,10 +2,10 @@
 
 /**
  * create_buffer - Allocates 1024 bytes for a buffer.
- * @file: file's storing chars
+ * @myfile: file's storing chars
  * Return: A buffer pointer
  */
-char *create_buffer(char *file)
+char *create_buffer(char *myfile)
 {
 	char *MYbuffer;
 
@@ -14,7 +14,7 @@ char *create_buffer(char *file)
 	if (MYbuffer == NULL)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Sorry Can't write to %s\n", file);
+			"Error: Sorry Can't write to %s\n", myfile);
 		exit(99);
 	}
 
@@ -23,17 +23,17 @@ char *create_buffer(char *file)
 
 /**
  * close_file - Closes file descriptors.
- * @fd: The file descriptor
+ * @file_d: The file descriptor
  */
-void close_file(int fd)
+void close_file(int file_d)
 {
 	int cM;
 
-	cM = close(fd);
+	cM = close(file_d);
 
 	if (cM == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_d);
 		exit(100);
 	}
 }
@@ -42,7 +42,6 @@ void close_file(int fd)
  * main - Copies the contents of a file to another file.
  * @ac: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
- *
  * Return: 0 on success.
 */
 
@@ -61,7 +60,6 @@ int main(int ac, char **argv)
 	from = open(argv[1], O_RDONLY);
 	rr = read(from, MYbuffer, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
 	do {
 		if (from == -1 || rr == -1)
 		{
@@ -70,7 +68,6 @@ int main(int ac, char **argv)
 			free(MYbuffer);
 			exit(98);
 		}
-
 		ww = write(to, MYbuffer, rr);
 		if (to == -1 || ww == -1)
 		{
@@ -79,15 +76,11 @@ int main(int ac, char **argv)
 			free(MYbuffer);
 			exit(99);
 		}
-
 		rr = read(from, MYbuffer, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
-
 	} while (rr > 0);
-
 	free(MYbuffer);
 	close_file(from);
 	close_file(to);
-
 	return (0);
 }
