@@ -23,11 +23,11 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 		dprintf(STDERR_FILENO, USAGE), exit(97);
-	
+
 	from_filedata = open(av[1], O_RDONLY);
-	If (from_filedata == -1);
+	if (from_filedata == -1)
 		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
-	
+
 	to_filedata = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, PERMISSIONS);
 	if (to_filedata == -1)
 	dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
@@ -38,7 +38,7 @@ int main(int ac, char **av)
 
 	if (bytes == -1)
 		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
-	
+
 	close(from_filedata);
 	close(to_filedata);
 
@@ -50,4 +50,3 @@ int main(int ac, char **av)
 
 	return (EXIT_SUCCESS);
 }
-
