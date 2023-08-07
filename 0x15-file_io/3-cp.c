@@ -39,8 +39,8 @@ int main(int ac, char **av)
 	if (bytes == -1)
 		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
 
-	close(from_filedata);
-	close(to_filedata);
+	from_filedata = close(from_filedata);
+	to_filedata = close(to_filedata);
 
 	if (from_filedata)
 		dprintf(STDERR_FILENO, ERR_NOCLOSE, from_filedata), exit(100);
