@@ -18,7 +18,7 @@
 int main(int ac, char **av)
 {
 	int from_filedata = 0, to_filedata = 0;
-	ssize_t bytes;
+	ssize_t bb;
 	char buf[READ_BUF_SIZE];
 
 	if (ac != 3)
@@ -32,11 +32,11 @@ int main(int ac, char **av)
 	if (to_filedata == -1)
 	dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
 
-	while ((bytes = read(from_filedata, buf, READ_BUF_SIZE)) > 0)
-		if (write(to_filedata, buf, bytes) != bytes)
+	while ((bb = read(from_filedata, buf, READ_BUF_SIZE)) > 0)
+		if (write(to_filedata, buf, bb) != bb)
 			dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
 
-	if (bytes == -1)
+	if (bb == -1)
 		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
 
 	from_filedata = close(from_filedata);
