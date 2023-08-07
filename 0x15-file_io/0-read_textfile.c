@@ -19,10 +19,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	mybuf = malloc(sizeof(char) * letters);
-
-	if (!filename || !letters)
-		return (0);
-
 	mytito = read(file_D, mybuf, letters);
 	myW = write(STDOUT_FILENO, mybuf, mytito);
 
