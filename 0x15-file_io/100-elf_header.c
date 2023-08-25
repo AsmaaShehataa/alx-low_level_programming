@@ -1,5 +1,18 @@
 #include "main.h"
 
+void checking_elf(unsigned char *ent_ident);
+void printing_magic(unsigned char *ent_ident);
+void printing_class(unsigned char *ent_ident);
+void printing_data(unsigned char *ent_ident);
+void print_elf_version(unsigned char *ent_ident);
+void print_My_osabi(unsigned char *ent_ident);
+void print_my_elf_abi(unsigned char *ent_ident);
+void print_elf_header_type(unsigned int e_type, unsigned char *ent_ident);
+void print_elfheader_entry(unsigned long int e_entry,
+		unsigned char *ent_ident);
+void close_elf(int elf);
+int main(int __attribute__((__unused__)) argc, char *argv[]);
+
 /**
  * checking_elf - Checks if a file is an ELF file.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
@@ -97,7 +110,8 @@ void printing_data(unsigned char *e_ident)
 /**
  *  * print_elf_version - Prints the version of an ELF header.
  *   * @e_ident: A pointer to an array containing the ELF version.
- *    */
+ *    
+*/
 void print_elf_version(unsigned char *e_ident)
 {
 	 printf(" Version: %d",

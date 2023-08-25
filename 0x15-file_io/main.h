@@ -1,17 +1,14 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <elf.h>
+
 
 
 ssize_t read_textfile(const char *filename, size_t letters);
@@ -27,7 +24,8 @@ void print_elf_version(unsigned char *ent_ident);
 void print_My_osabi(unsigned char *ent_ident);
 void print_my_elf_abi(unsigned char *ent_ident);
 void print_elf_header_type(unsigned int e_type, unsigned char *ent_ident);
-void print_elfheader_entry(unsigned long int e_entry, unsigned char *ent_ident);
+void print_elfheader_entry(unsigned long int e_entry,
+		unsigned char *ent_ident);
 void close_elf(int elf);
 int main(int __attribute__((__unused__)) argc, char *argv[]);
 
