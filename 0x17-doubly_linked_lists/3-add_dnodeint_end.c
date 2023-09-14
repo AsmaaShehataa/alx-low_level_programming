@@ -14,7 +14,7 @@ dlistint_t *end_node;
 int num = n;
 
 new_node = malloc(sizeof(dlistint_t));
-if (!end_node)
+if (end_node == NULL)
 return (NULL);
 
 new_node->n = num;
