@@ -29,6 +29,7 @@ if (idx == index)
 temp2 = temp1->next;
 temp2->prev = temp1->prev->prev;
 temp1 = temp2->prev;
+temp1->next = temp2->next->next;
 return (1);
 }
 temp1 = temp1->next;
