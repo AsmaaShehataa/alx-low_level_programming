@@ -42,7 +42,24 @@ int div(int a, int b)
 {
 	if (b == 0)
 	{
-	    printf("Error\n");
-    }
+		printf("Error\n");
+	}
+
+	return (a / b);
+}
+
+/**
+ * mod - modulos
+ * @a: input1
+ * @b: input2
+ * Return: a % b
+ */
+int mod(int a, int b)
+{
+	if (b == 0)
+	{
+		printf("Error\n");
+	}
+
 	return (a % b);
 }
