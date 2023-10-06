@@ -1,12 +1,17 @@
+/*
+ * File: 0-hash_table_create.c
+ * Auth: Brennan D Baraban
+ */
+
 #include "hash_tables.h"
 
 /**
- * hash_table_create - function create a hash table
- * @size: input variable
+ * hash_table_create - Creates a hash table.
+ * @size: The size of the array.
  *
- * Return: Null with an error otherwise pointer to the new hash_tble
-*/
-
+ * Return: If an error occurs - NULL.
+ *         Otherwise - a pointer to the new hash table.
+ */
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *ht;
@@ -17,13 +22,11 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	ht->size = size;
-	ht->array = malloc(size * sizeof(hash_node_t *));
+	ht->array = malloc(sizeof(hash_node_t *) * size);
 	if (ht->array == NULL)
-	{
-		free(ht);
 		return (NULL);
-	}
 	for (i = 0; i < size; i++)
 		ht->array[i] = NULL;
+
 	return (ht);
 }
